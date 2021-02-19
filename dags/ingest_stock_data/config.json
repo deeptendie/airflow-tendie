@@ -1,0 +1,10 @@
+{
+    "name": "stock-data-ingestion",
+    "schedule": "1 9-17 * * 1,2,3,4,5",
+    "stock_symbols": [
+        "GME",
+        "BB",
+        "AMC",
+        "BIT"
+    ]
+}

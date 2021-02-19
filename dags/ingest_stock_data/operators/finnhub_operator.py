@@ -1,11 +1,13 @@
 import logging
-
 import finnhub
 import pandas as pd
 from airflow.example_dags.example_python_operator import print_context
 from airflow.operators.python import PythonOperator
 def finnhub_test(ds, *args, **kwargs):
     print(ds)
+    print(kwargs)
+    test_val=kwargs['stock_symbol']
+    print("testing"+test_val)
     """
     The following script is from the notebook
     """
