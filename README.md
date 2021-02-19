@@ -42,3 +42,11 @@ docker-compose down --volumes --rmi all
 docker exec -it airflow-tendie_airflow-webserver_1 /bin/bash
 ```
 
+
+
+
+
+```
+docker exec -it airflow-tendie_airflow-webserver_1 pip install -r requirements.txt
+```
+

@@ -1,6 +1,6 @@
 from airflow.models import DAG
 from datetime import datetime, timedelta
-from airflow.operators.dummy_operator import DummyOperator
+from airflow.operators.dummy import DummyOperator
 
 import json
 
