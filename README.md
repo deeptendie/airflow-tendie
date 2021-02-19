@@ -16,7 +16,8 @@ echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
 get images
 
 ```
-docker-compose up airflow-init
+mkdir ./dags ./logs ./plugins
+echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
 ```
 
 compose up
@@ -42,11 +43,15 @@ docker-compose down --volumes --rmi all
 docker exec -it airflow-tendie_airflow-webserver_1 /bin/bash
 ```
 
-
-
-
-
 ```
 docker exec -it airflow-tendie_airflow-webserver_1 pip install -r requirements.txt
 ```
+
+[deletes everything](https://stackoverflow.com/questions/44785585/docker-how-to-delete-all-local-docker-images)
+
+```
+docker system prune -a --volumes
+```
+
+
 

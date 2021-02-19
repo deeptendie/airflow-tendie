@@ -1,4 +1,3 @@
-FROM python:3.6-slim-buster
-RUN apt-get update
+FROM: apache/airflow:2.0.1
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
