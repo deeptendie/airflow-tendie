@@ -1,3 +1,18 @@
+# ![deeptendies](../Downloads/deeptendies.jpeg) airflow-tendie
+
+this is a part of the `deeptendies` project, where like minded put time together for tindies. 
+
+![image-20210219021925826](README.assets/image-20210219021925826.png)
+
+
+
+- This airflow cluster is meant to capture data from APIs and save it for later consumption
+- analytical and future tasks may be added down the roadmap
+- this cluster is running airflow `v2.0.1`
+- stonks! 
+
+![img](README.assets/stonks.png)
+
 # Airflow Setup
 
 http://airflow.apache.org/docs/apache-airflow/stable/start/docker.html
