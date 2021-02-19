@@ -99,16 +99,20 @@ services:
       timeout: 10s
       retries: 5
     restart: always
+    build: .
 
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
     restart: always
+    build: .
+
 
   airflow-worker:
     <<: *airflow-common
     command: celery worker
     restart: always
+    build: .
 
   airflow-init:
     <<: *airflow-common
@@ -119,6 +123,7 @@ services:
       _AIRFLOW_WWW_USER_CREATE: 'true'
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+    build: .
 
   flower:
     <<: *airflow-common

@@ -45,6 +45,7 @@ docker exec -it airflow-tendie_airflow-webserver_1 /bin/bash
 
 ```
 docker exec -it airflow-tendie_airflow-webserver_1 pip install -r requirements.txt
+docker exec -it airflow-tendie_airflow-worker_1 pip install -r requirements.txt
 ```
 
 [deletes everything](https://stackoverflow.com/questions/44785585/docker-how-to-delete-all-local-docker-images)

@@ -1,10 +1,11 @@
 from airflow.models import DAG
 from datetime import datetime, timedelta
 from airflow.operators.dummy import DummyOperator
+import json # https://bigdata-etl.com/apache-airflow-create-dynamic-dag/
+from airflow.operators.python import PythonOperator
+from dags.finnhub_operator import finnhub_test
+import finnhub
 
-import json
-
-# https://bigdata-etl.com/apache-airflow-create-dynamic-dag/
 
 def create_dag(dag_id,
                schedule,
@@ -23,12 +24,18 @@ def create_dag(dag_id,
             dag=dag
         )
 
+        py = PythonOperator(
+            task_id='python_operator',
+            python_callable=finnhub_test(),
+            dag=dag
+        )
+
         for table in conf['tables']:
             tab = DummyOperator(
                 task_id=table,
                 dag=dag
             )
-            init >> tab >> clear
+            init >> py >> tab >> clear
 
         return dag
 
