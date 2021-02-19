@@ -25,7 +25,8 @@ def create_dag(dag_id,
 
         py = PythonOperator(
             task_id='finnhub_task',
-            python_callable=finnhub_test()
+            python_callable=finnhub_test,
+            dag=dag
         )
 
         for table in conf['tables']:
