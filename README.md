@@ -23,6 +23,7 @@ echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
 compose up
 
 ````
+docker-compose up --build -d
 docker-compose up -d
 ````
 
@@ -56,3 +57,7 @@ docker system prune -a --volumes
 
 
 
+restart webserver
+```shell
+docker restart airflow-tendie_airflow-webserver_1
+```
