@@ -31,7 +31,7 @@ def karens_custom_dag(ds, *args, **kwargs): # dag function
 
 
     #todo:get data to be saved to csv.
-    data=kwargs['dag_run'].conf['csv_file_path']
+    # data=kwargs['dag_run'].conf['csv_file_path']
     return ("success")
 
 
