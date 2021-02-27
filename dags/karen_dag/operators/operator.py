@@ -21,10 +21,24 @@ def finnhub_test(ds, *args, **kwargs):
     return ("success")
 
 
-def helper_test_print(res):
+def karens_custom_dag(ds, *args, **kwargs): # dag function
+    print(ds)
+    print(kwargs)
+    #todo: write your functions in here
+
+
+
+
+
+    #todo:get data to be saved to csv.
+    data=kwargs['dag_run'].conf['csv_file_path']
+    return ("success")
+
+
+def helper_test_print(res): #generic function
     print("testing the feature:")
     print(res)
 
 
 if __name__ == '__main__':
-    finnhub_test()
+    karens_custom_dag()

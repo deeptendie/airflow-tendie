@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow.operators.dummy import DummyOperator
 import json  # https://bigdata-etl.com/apache-airflow-create-dynamic-dag/
 from airflow.operators.python import PythonOperator
-from ingest_stock_data.operators.finnhub_operator import finnhub_test
+from karen_dag.operators.operator import finnhub_test, karens_custom_dag
 
 
 def create_dag(dag_id,
@@ -17,26 +17,20 @@ def create_dag(dag_id,
             task_id='start_tasks',
             dag=dag
         )
-
-        clear = DummyOperator(
-            task_id='end_tasks',
+        karen = PythonOperator(
+            task_id='karens_job_interview',
+            python_callable=karens_custom_dag,
             dag=dag
         )
 
-        py = PythonOperator(
-            task_id='finnhub_task',
-            python_callable=finnhub_test,
+        karen_taks2 = PythonOperator(
+            task_id='karens_job_interview2',
+            python_callable=karens_custom_dag,
             dag=dag
         )
 
-        for table in conf['stock_symbols']:
-            tab = PythonOperator(
-                task_id=table,
-                python_callable=finnhub_test,
-                dag=dag,
-                op_kwargs={'stock_symbol': table}
-            )
-            init >> py >> tab >> clear
+
+        init >> karen >> karen_taks2
 
         return dag
 
