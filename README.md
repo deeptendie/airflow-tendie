@@ -46,6 +46,21 @@ docker exec -it airflow-tendie_airflow-worker_1 pip install -r requirements.txt
 
 [deletes everything](https://stackoverflow.com/questions/44785585/docker-how-to-delete-all-local-docker-images)
 
+
+
+stop all containers: & # remove all containers
+
+```
+docker kill $(docker ps -q) 
+docker rm $(docker ps -a -q) 
+```
+
+
+
+
+
+
+
 ```
 docker system prune -a --volumes
 ```
@@ -55,3 +70,13 @@ restart webserver
 ```
 docker restart airflow-tendie_airflow-webserver_1
 ```
+
+
+
+# connect to the vm instance:
+
+```
+stan@stan-ryzenrig:~/Downloads$ chmod 600 LightsailDefaultKey-us-west-2.pem 
+stan@stan-ryzenrig:~/Downloads$ ssh -i LightsailDefaultKey-us-west-2.pem ubuntu@34.210.68.49
+```
+
